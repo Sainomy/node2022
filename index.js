@@ -1,20 +1,20 @@
 var express = require("express");
 var app = express();
-var path = require("path");
+
+const atendenteRoute = require("./routes/atendenteRoute");
+const clienteRoute = require("./routes/clienteRoute");
 
 app.set("view engine", "ejs");
 
 app.use(express.urlencoded({ extended: false }));
-app.use(express.json());
 
-app.get("/", function(req, res){
-    res.render ("index.ejs", {});
-});
+app.use(express.static("./public"));
 
-app.post("/", function(req,res){
-    res.send("Oi " + req.body.nome);
-});
+require("./config/database.js");
 
-app.listen("3000", function(){
-    console.log("Conexão iniciada na porta 3000!");
+app.use("/atendente", atendenteRoute);
+app.use("/cliente", clienteRoute);
+
+app.listen("3000", function () {
+  console.log("Conexão iniciada na porta 3000");
 });

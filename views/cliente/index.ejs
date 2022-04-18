@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listagem dos Clientes</title>
+</head>
+<body>
+    <h1>Listagem de Clientes</h1>
+    <p>
+        <a href="/cliente/add">Adicionar</a>
+    </p>
+    <form method="post">
+        <input type="text" name="pesquisar">
+        <input type="submit" value="Pesquisar">
+    </form>
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Nome</th>
+            <th>Telefone</th>
+            <th>Data de Aniversário</th>
+            <th>CPF</th>
+            <th>Editar</th>
+            <th>Excluir</th>
+        </tr>
+        <% Clientes.forEach((cliente)=>{ %>
+        <tr>
+            <td><%=cliente.id%></td>
+            <td><%=cliente.nome%></td>
+            <td><%=cliente.telefone%></td>
+            <td><%=cliente.data%></td>
+            <td><%=cliente.cpf%></td>
+            <td>
+                <a href="/cliente/edt/<%=cliente.id%>">Editar</a>
+            </td>
+            <td>
+                <a href="/cliente/del/<%=cliente.id%>">Deletar</a>
+            </td>
+        </tr>
+        <% }) %>
+    </table>
+</body>
+</html>

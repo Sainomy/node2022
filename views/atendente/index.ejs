@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listagem dos Atendentes</title>
+</head>
+<body>
+    <h1>Listagem de Atendentes</h1>
+    <p>
+        <a href="/atendente/add">Adicionar</a>
+    </p>
+    <form method="post">
+        <input type="text" name="pesquisar">
+        <input type="submit" value="Pesquisar">
+    </form>
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Nome</th>
+            <th>Função</th>
+            <th>Carga Horária</th>
+            <th>Foto</th>
+            <th>Editar</th>
+            <th>Excluir</th>
+        </tr>
+        <% Atendentes.forEach((atendente)=>{ %>
+        <tr>
+            <td><%=atendente.id%></td>
+            <td><%=atendente.nome%></td>
+            <td><%=atendente.telefone%></td>
+            <td><%=atendente.carga%></td>
+            <td>
+                <img src="/fotos/<%=atendente.foto%>" 
+                    width="80px" alt="foto do usuário">
+            </td>
+            <td>
+                <a href="/atendente/edt/<%=atendente.id%>">Editar</a>
+            </td>
+            <td>
+                <a href="/atendente/del/<%=atendente.id%>">Deletar</a>
+            </td>
+        </tr>
+        <% }) %>
+    </table>
+</body>
+</html>
