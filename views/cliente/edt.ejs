@@ -7,17 +7,20 @@
     <title>Editando Cliente</title>
 </head>
 <body>
+    <center>
+        <h2>Editando Cadastro Cliente</h2>
     <form method="post" >
         Nome: <input value="<%=cliente.nome%>" type="text" name="nome" 
             placeholder=""><br>
         Telefone: <input value="<%=cliente.telefone%>" type="text" name="telefone" 
             placeholder="Digite seu nome!"><br>
-        Data de Aniversário: <input value="<%=cliente.data%>" type="date" name="data" 
+        Data de Aniversário: <input required value="<%=cliente.data%>" type="date" name="data" 
             placeholder="Digite sua data de nascimento!"><br>
         CPF: <input required value="<%=cliente.cpf%>" type="text" name="cpf"
             placehorder="Digite seu CPF!"><br>
             
         <input type="submit" value="Enviar">
     </form>
+</center>
 </body>
 </html>
